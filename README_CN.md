@@ -484,12 +484,27 @@ OK
 ![网盛生意宝](static/netsun.jpg)
 ![北京登云美业网络](static/idengyun.jpg)
 ![Holder](static/holder.png)
-
+![立林科技](static/leelen.png)
+![爱成长](static/aichengzhang.png)
+![嘉云数据](static/clubfactory.png)
+![百草味](static/bcw.png)
+![青岛优米](static/youmi.png)
+![紫光软件](static/unis.png)
+![拓保软件](static/tobosoft.png)
+![海信集团](static/hisense.png)
+![小红唇](static/xiaohongchun.png)
+![上海恺英](static/kaiying.png)
+![上海慧力](static/xiaohuasheng.png)
+![上海喔噻](static/shouqingba.png)
+![vipkid](static/vipkid.png)
+![宇中科技](static/yuzhong.png)
+![蘑菇财富](static/mogu.jpg)
 
 ### 洐生项目
 
 * [Bistoury: 一个集成了Arthas的项目](https://github.com/qunarcorp/bistoury)
 * [一个使用MVEL脚本的fork](https://github.com/XhinLiang/arthas)
+
 
 ### Credit
 
@@ -502,12 +517,12 @@ OK
 #### Projects
 
 * [greys-anatomy](https://github.com/oldmanpushcart/greys-anatomy): Arthas代码基于Greys二次开发而来，非常感谢Greys之前所有的工作，以及Greys原作者对Arthas提出的意见和建议！
-* [termd](https://github.com/termd/termd): Arthas的命令行实现基于termd开发，是一款优秀的命令行程序开发框架，感谢termd提供了优秀的框架。
+* [termd](https://github.com/alibaba/termd): Arthas的命令行实现基于termd开发，是一款优秀的命令行程序开发框架，感谢termd提供了优秀的框架。
 * [crash](https://github.com/crashub/crash): Arthas的文本渲染功能基于crash中的文本渲染功能开发，可以从[这里](https://github.com/crashub/crash/tree/1.3.2/shell)看到源码，感谢crash在这方面所做的优秀工作。
-* [cli](https://github.com/eclipse-vertx/vert.x/tree/master/src/main/java/io/vertx/core/cli): Arthas的命令行界面基于vert.x提供的cli库进行开发，感谢vert.x在这方面做的优秀工作。
-* [compiler](https://github.com/skalogs/SkaETL/tree/master/compiler) Arthas里的内存编绎器代码来源
+* [cli](https://github.com/alibaba/cli): Arthas的命令行界面基于vert.x提供的cli库进行开发，感谢vert.x在这方面做的优秀工作。
+* [compiler](https://github.com/skalogs/SkaETL/tree/master/compiler) Arthas里的内存编译器代码来源
 * [Apache Commons Net](https://commons.apache.org/proper/commons-net/) Arthas里的Telnet Client代码来源
-* [async-profiler](https://github.com/jvm-profiling-tools/async-profiler) Arthas's profielr 命令.
+* [async-profiler](https://github.com/jvm-profiling-tools/async-profiler) Arthas's profiler 命令.
 
 ### 仓库镜像
 
