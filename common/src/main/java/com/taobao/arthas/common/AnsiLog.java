@@ -53,16 +53,20 @@ public abstract class AnsiLog {
     private static final String ERROR_COLOR_PREFIX = "[" + colorStr("ERROR", RED) + "] ";
 
     static {
-        if (System.console() != null) {
-            enableColor = true;
-            // windows dos, do not support color
-            if (OSUtils.isWindows()) {
-                enableColor = false;
+        try {
+            if (System.console() != null) {
+                enableColor = true;
+                // windows dos, do not support color
+                if (OSUtils.isWindows()) {
+                    enableColor = false;
+                }
             }
-        }
-        // cygwin and mingw support color
-        if (OSUtils.isCygwinOrMinGW()) {
-            enableColor = true;
+            // cygwin and mingw support color
+            if (OSUtils.isCygwinOrMinGW()) {
+                enableColor = true;
+            }
+        } catch (Throwable t) {
+            // ignore
         }
     }
 
@@ -278,7 +282,7 @@ public abstract class AnsiLog {
             String computed = from;
             if (arguments != null && arguments.length != 0) {
                 for (Object argument : arguments) {
-                    computed = computed.replaceFirst("\\{\\}", Matcher.quoteReplacement(argument.toString()));
+                    computed = computed.replaceFirst("\\{\\}", Matcher.quoteReplacement(String.valueOf(argument)));
                 }
             }
             return computed;

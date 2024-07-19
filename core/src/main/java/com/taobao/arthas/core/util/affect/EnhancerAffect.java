@@ -16,18 +16,25 @@ import static java.lang.String.format;
  * 增强影响范围<br/>
  * 统计影响类/方法/耗时
  * Created by vlinux on 15/5/19.
+ * @author hengyunabc 2020-06-01
  */
 public final class EnhancerAffect extends Affect {
 
     private final AtomicInteger cCnt = new AtomicInteger();
     private final AtomicInteger mCnt = new AtomicInteger();
     private ClassFileTransformer transformer;
+    private long listenerId;
+
+    private Throwable throwable;
+
     /**
      * dumpClass的文件存放集合
      */
     private final Collection<File> classDumpFiles = new ArrayList<File>();
 
     private final List<String> methods = new ArrayList<String>();
+
+    private String overLimitMsg;
 
     public EnhancerAffect() {
     }
@@ -92,8 +99,41 @@ public final class EnhancerAffect extends Affect {
         this.transformer = transformer;
     }
 
+    public long getListenerId() {
+        return listenerId;
+    }
+
+    public void setListenerId(long listenerId) {
+        this.listenerId = listenerId;
+    }
+
+    public Throwable getThrowable() {
+        return throwable;
+    }
+
+    public void setThrowable(Throwable throwable) {
+        this.throwable = throwable;
+    }
+
+    public Collection<File> getClassDumpFiles() {
+        return classDumpFiles;
+    }
+
+    public List<String> getMethods() {
+        return methods;
+    }
+
+    public String getOverLimitMsg() {
+        return overLimitMsg;
+    }
+
+    public void setOverLimitMsg(String overLimitMsg) {
+        this.overLimitMsg = overLimitMsg;
+    }
+
     @Override
     public String toString() {
+        //TODO removing EnhancerAffect.toString(), replace with ViewRenderUtil.renderEnhancerAffect()
         final StringBuilder infoSB = new StringBuilder();
         if (GlobalOptions.isDump
                 && !classDumpFiles.isEmpty()) {
@@ -108,10 +148,14 @@ public final class EnhancerAffect extends Affect {
                 infoSB.append("[Affect method: ").append(method).append("]\n");
             }
         }
-        infoSB.append(format("Affect(class count:%d , method count:%d) cost in %s ms.",
+        infoSB.append(format("Affect(class count: %d , method count: %d) cost in %s ms, listenerId: %d",
                 cCnt(),
                 mCnt(),
-                cost()));
+                cost(),
+                listenerId));
+        if (this.throwable != null) {
+            infoSB.append("\nEnhance error! exception: ").append(this.throwable);
+        }
         return infoSB.toString();
     }
 
